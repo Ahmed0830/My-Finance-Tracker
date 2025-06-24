@@ -140,11 +140,11 @@ const ExpenseForm = () => {
                 <TrendingDown className='inline-block w-5 h-5 mr-2'/>Expenses</button>
         </div>
         <div className='flex-1 min-w-[100px] m-1 text-center'>
-            <button className= {`w-full rounded-md ${activeTab === 'goals' ? `bg-white text-blue-500` : ''} p-2 m-0`} onClick={() => setActiveTab('goals')}>
+            <button className= {`w-full rounded-md p-2 ${activeTab === 'goals' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('goals')}>
                 <Goal className='inline-block w-5 h-5 mr-2'/>Goals</button>
         </div>
         <div className='flex-1 min-w-[100px] m-1 text-center'>
-            <button className= {`w-full rounded-md ${activeTab === 'chart' ? `bg-white text-blue-500` : ''} p-2 m-0`} onClick={() => setActiveTab('chart')}>
+            <button className= {`w-full rounded-md p-2 ${activeTab === 'chart' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('chart')}>
             <PieChart className='inline-block w-5 h-5 mr-2'/>Insights</button>
         </div>
         </div>
