@@ -234,7 +234,7 @@ return (
                             <input type = "number" id = "updateCurrent"
                             ref = {(el) => (updateRefs.current[goal._id] = el)}
                             placeholder='Update amount'
-                            className='flex-1 h-10 border border-gray-300 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+                            className='flex-1 h-10 text-sm border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
                             onKeyDown={(e) => {
                 if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
                   e.preventDefault();
