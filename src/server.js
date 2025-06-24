@@ -20,7 +20,8 @@ const allowedOrigins = [
   ];
   
 const corsOptions = {
-    origin: allowedOrigins
+    origin: allowedOrigins,
+    credentials: true,
   };
 const app = express();
 let db;
