@@ -14,14 +14,19 @@ const __dirname = path.dirname(__filename);
 // // Load .env file explicitly
 dotenv.config(path.join(__dirname, '../.env'));
 
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://my-finance-tracker-sable.vercel.app/'
+  ];
+  
 const corsOptions = {
-    origin: 'http://localhost:5173' 
+    origin: allowedOrigins
   };
 const app = express();
 let db;
 app.use(cors(corsOptions));
 app.use(express.json());
-
+const PORT = process.env.PORT || 5000;
 // Database connection
 async function databaseConnection() {
     try {   
@@ -30,10 +35,9 @@ async function databaseConnection() {
         await client.connect();
         db = await client.db('personal_finance_tracker')
         console.log('Connected to MongoDB');
-        app.listen(3000, () => {
-            console.log('Server is running on port 3000');
-        
-        });
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+          });
     } catch (err) {
         console.error ('Error conneciting to MongoDB:', err);
     }
