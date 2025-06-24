@@ -9,10 +9,10 @@ const ExpenseChart = ({ expenses}) => {
         return(<p>No records to display</p>)
     }
 return(
-    <div className='bg-white rounded-lg shadow-lg p-4'>   
-    <h6 className='text-xl font-medium mt-2'>Spending Insights</h6>     
-    <h6 className='text-xl font-medium mt-6'>This Month's Spending by Category</h6>
-    <ResponsiveContainer width="100%" height = {400}>
+    <div className='bg-white rounded-lg shadow-lg p-4 sm:p-6'>   
+    <h2 className='text-2xl font-semibold mb-2 text-gray-800'>Spending Insights</h2>     
+    <h3 className='text-lg font-medium mb-4 text-gray-700'>This Month's Spending by Category</h3>
+    <ResponsiveContainer width="100%" minHeight = {300}>
         <PieChart>
             <Pie
             data = {expenses}
@@ -23,14 +23,18 @@ return(
             outerRadius={120}
             fill="#8884d8"
             labelLine={false}
-            label={({ category, percent }) => `${category} ${(percent * 100).toFixed(0)}%`}
+            label={({ category, percent }) => percent > 0.05 ? `${category} ${(percent * 100).toFixed(0)}%` : ''}
             >
                 {expenses.map((entry, id) => (
                     <Cell key={`cell-${id}`} fill={COLORS[id % COLORS.length]} />
                 ))}
             </Pie>
-            <Tooltip formatter={(amount) => `$${amount.toFixed(2)}`} />
-            <Legend />
+            <Tooltip formatter={(amount) => `$${parseFloat(amount).toFixed(2)}`} />
+            <Legend 
+              wrapperStyle={{ fontSize: '14px' }}
+              layout="horizontal"
+              verticalAlign="bottom"
+              align="center"/>
         </PieChart>
     </ResponsiveContainer>
     <div>

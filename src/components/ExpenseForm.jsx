@@ -133,23 +133,23 @@ const ExpenseForm = () => {
         <ExpenseContext.Provider value={{expenses, setExpenses}}>
         <div className="min-h-screen p-4">
             <QuickStats goalCount = {goals.length}/>
-            <div className="flex justify-between bg-gray-300 font-medium p-0 rounded-md mb-4">
-            <div className='m-2 w-full text-center'>
-            <button className= {`w-full rounded-md ${activeTab === 'expenses' ? `bg-white text-blue-500` : ''} p-2 m-0`}
+            <div className="flex flex-wrap justify-between bg-gray-300 font-medium rounded-md mb-4 overflow-hidden">
+            <div className='flex-1 min-w-[100px] m-1 text-center'>
+            <button className= {`w-full rounded-md p-2 ${activeTab === 'expenses' ? `bg-white text-blue-500` : ''}`}
              onClick={() => setActiveTab('expenses')}>
                 <TrendingDown className='inline-block w-5 h-5 mr-2'/>Expenses</button>
         </div>
-        <div className='focus:bg-blue-200 m-2 w-full text-center'>
+        <div className='flex-1 min-w-[100px] m-1 text-center'>
             <button className= {`w-full rounded-md ${activeTab === 'goals' ? `bg-white text-blue-500` : ''} p-2 m-0`} onClick={() => setActiveTab('goals')}>
                 <Goal className='inline-block w-5 h-5 mr-2'/>Goals</button>
         </div>
-        <div className='focus:bg-blue-200 m-2 w-full text-center'>
+        <div className='flex-1 min-w-[100px] m-1 text-center'>
             <button className= {`w-full rounded-md ${activeTab === 'chart' ? `bg-white text-blue-500` : ''} p-2 m-0`} onClick={() => setActiveTab('chart')}>
             <PieChart className='inline-block w-5 h-5 mr-2'/>Insights</button>
         </div>
         </div>
         {activeTab === 'expenses' && (
-            <div>
+            <div className='w-full'>
             <div className='bg-white p-4 rounded-lg shadow-lg'>
             <h3 className="text-xl font-medium mb-6"><PlusCircle className='inline-block w-6 h-6 mr-2'/>Add Expense</h3>
             
@@ -172,7 +172,7 @@ const ExpenseForm = () => {
                 </label>
                 <input
                 ref = {amountRef}
-        className='border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' 
+        className='border border-gray-300 rounded-md p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' 
         type = "number"
         id="expenseAmount"
         placeholder="100"
@@ -185,29 +185,28 @@ const ExpenseForm = () => {
         />
         </div>
         <label htmlFor="expenseCategory" className="block text-gray-700 font-medium mb-2 ">Category: </label>
-        <select ref = {categoryRef} id = "expenseCategory" className ='border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-50' required>
+        <select ref = {categoryRef} id = "expenseCategory" className ='border border-gray-300 rounded-md p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-50' required>
             <option value = "" disabled>Select Category ...</option>
             { categories.map((category) => (
                 <option key= {category} value = {category}>{category}</option>
             ))}
         </select>
         <label htmlFor="dateInput" className="block text-gray-700 font-medium mb-2">Date: </label>
-        <input ref = {dateRef} type = "date" id="dateInput" className='border border-gray-300 rounded-md p-2 w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500'/>
+        <input ref = {dateRef} type = "date" id="dateInput" className='border border-gray-300 rounded-md p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500'/>
         <button 
-        className="w-full mt-4 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+        className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
         onClick = {handleAdd}>
         Add Expense
         </button>
             </form>
             </div>
-        
-            
-            <div className='mt-4 border bg-white border-gray-200 p-4 rounded-md shadow-md'> 
-                <h6 className='flex justify-between text-xl'>
-                <p className='text-green-500 mb-2 font-medium '>Your Expenses </p>
-                <div>
+    
+            <div className='mt-6 bg-white p-4 rounded-md shadow-md'> 
+                <h6 className='flex justify-between items-center mb-2 text-xl'>
+                <span className='text-green-500 mb-2 font-medium '>Your Expenses </span>
+                <span>
                 <span className='text-gray-700'>Total: </span>
-                <span className='text-red-700'>{`$${totalExpense.toFixed(2)}`}</span> </div></h6>
+                <span className='text-red-700'>{`$${totalExpense.toFixed(2)}`}</span> </span></h6>
                 {/* <h3 className="text-blue-500 text-xl font-bold mt-8 mb-4">Expense List:</h3> */}
                 {expenses.length === 0 ? (
                     <p className="text-gray-500">No expenses added yet.</p>
@@ -216,10 +215,10 @@ const ExpenseForm = () => {
                         {expenses.map((expense) => (
                             
                             <li key={expense._id} className="mb-2 p-4 rounded-lg bg-gray-50">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between flex-wrap">
                                 <span className="font-semibold text-red-700">${expense.amount.toFixed(2)}</span> 
                                 
-                                <span className="ml-1">{expense.date !== null? new Date(expense.date).toLocaleDateString(): new Date().toLocaleDateString()}</span>
+                                <span>{expense.date !== null? new Date(expense.date).toLocaleDateString(): new Date().toLocaleDateString()}</span>
                                 </div>
                                 <span className="italic">{expense.category}</span>
                             </li>
@@ -234,7 +233,7 @@ const ExpenseForm = () => {
                 <GoalsForm goals = {goals} setGoals= {setGoals}/>
             )}
             {activeTab === 'chart' && (
-                <div>
+                <div className='w-full mx-auto'>
             <ExpenseChart expenses={chartData} />
             </div>
             )}

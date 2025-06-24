@@ -230,11 +230,11 @@ return (
                                 {goal.date && (
                                     <p className='text-sm text-gray-500 mb-2'>Target Date: {new Date(goal.date).toLocaleDateString()}</p>
                                 )}
-                            <div>
+                            <div className='flex flex-col sm:flex-row sm:items-center gap-2 mt-2'>
                             <input type = "number" id = "updateCurrent"
                             ref = {(el) => (updateRefs.current[goal._id] = el)}
                             placeholder='Update amount'
-                            className='border border-gray-300 rounded-md p-1 w-4/5 mb-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+                            className='flex-1 h-10 border border-gray-300 rounded-md px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
                             onKeyDown={(e) => {
                 if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
                   e.preventDefault();
@@ -242,7 +242,7 @@ return (
               }}
 
             required />
-            <button className='w-1/6 text-white bg-blue-500 rounded-md ml-3 p-1' onClick={() => handleUpdate(goal._id)}>Update</button>
+            <button className='sm:w-auto w-full h-10 text-sm font-medium text-white bg-blue-500 rounded-md px-4 whitespace-nowrap' onClick={() => handleUpdate(goal._id)}>Update</button>
                             </div>
                            
                             
