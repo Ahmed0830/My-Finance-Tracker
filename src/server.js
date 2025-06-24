@@ -16,7 +16,7 @@ dotenv.config(path.join(__dirname, '../.env'));
 
 const allowedOrigins = [
     'http://localhost:5173',
-    'https://my-finance-tracker-sable.vercel.app/'
+    'https://my-finance-tracker-sable.vercel.app'
   ];
   
 const corsOptions = {
