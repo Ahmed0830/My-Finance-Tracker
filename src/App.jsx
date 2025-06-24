@@ -15,7 +15,7 @@ function App() {
       <h4 className= 'pt-6 font-medium text-center text-4xl text-gray-600'><Wallet size = {40} className='inline mr-2'/>My Finance Tracker</h4>
       <h6 className='text-xl text-gray-400 text-center pb-6'>Track Spending, Save Better</h6>
 <div>
-    {loggedIn ?<ExpenseForm />: <LoginForm onLoginSuccess= {handleLoginSuccess} />}
+    {loggedIn ?<ExpenseForm />: <div className='max-w-md mx-auto px-4'><LoginForm onLoginSuccess= {handleLoginSuccess} /></div>}
     </div>
     <SpeedInsights />
     </div>
