@@ -53,7 +53,7 @@ const handleAdd = async (e) => {
         return;
     }
     try {
-    const response = await fetch('http://localhost:3000/api/goals', {
+    const response = await fetch('https://my-finance-tracker-mc3k.onrender.com/api/goals', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const handleAdd = async (e) => {
 }
 const handleDelete = async (id) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/goals/${id}`, {
+        const response = await fetch(`https://my-finance-tracker-mc3k.onrender.com/api/goals/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -119,7 +119,7 @@ const handleUpdate = async (id) => {
         return;
     }
     try {
-        const response = await fetch(`http://localhost:3000/api/goals/${id}`, {
+        const response = await fetch(`https://my-finance-tracker-mc3k.onrender.com/api/goals/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

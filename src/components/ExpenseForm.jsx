@@ -42,7 +42,7 @@ const ExpenseForm = () => {
     useEffect(() => {
         const fetchGoals = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/goals', {
+                const response = await fetch('https://my-finance-tracker-mc3k.onrender.com/api/goals', {
                     method: 'GET', 
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -79,7 +79,7 @@ const ExpenseForm = () => {
         }
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/expenses', {
+            const response = await fetch('https://my-finance-tracker-mc3k.onrender.com/api/expenses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const ExpenseForm = () => {
         const fetchExpenses = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:3000/api/expenses', {
+                const response = await fetch('https://my-finance-tracker-mc3k.onrender.com/api/expenses', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
