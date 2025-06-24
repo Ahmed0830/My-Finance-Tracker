@@ -103,7 +103,7 @@ const LoginForm = ({onLoginSuccess}) => {
         }
     }
     return (
-        <div className='flex items-center w-full justify-center'>
+        <div className='flex items-center w-full m-2 justify-center'>
             
             {/* Sign Up Form */}
 
