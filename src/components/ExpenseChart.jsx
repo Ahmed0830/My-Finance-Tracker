@@ -9,7 +9,7 @@ const ExpenseChart = ({ expenses}) => {
         return(<p>No records to display</p>)
     }
 return(
-    <div className='bg-white rounded-lg shadow-lg p-4 sm:p-6'>   
+    <div className='bg-white rounded-lg shadow-lg p-4 px-2 sm:p-6'>   
     <h2 className='text-2xl font-semibold mb-2 text-gray-800'>Spending Insights</h2>     
     <h3 className='text-lg font-medium mb-4 text-gray-700'>This Month's Spending by Category</h3>
     <ResponsiveContainer width="100%" minHeight = {300} minWidth={100}>
