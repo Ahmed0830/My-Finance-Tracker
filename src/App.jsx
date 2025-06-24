@@ -4,6 +4,7 @@ import GoalsForm from './components/GoalsForm.jsx'
 import LoginForm from './components/LoginForm.jsx'
 import QuickStats from './components/QuickStats.jsx'
 import { Wallet } from 'lucide-react'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import './App.css'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     {/* <ExpenseForm /> */}
     {/* <GoalsForm /> */}
     {loggedIn ?<ExpenseForm />: <LoginForm onLoginSuccess= {handleLoginSuccess} />}
+    <SpeedInsights />
     {/* <QuickStats /> */}
     {/* <LoginForm /> */}
     </div>
