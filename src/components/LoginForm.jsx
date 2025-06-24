@@ -103,12 +103,12 @@ const LoginForm = ({onLoginSuccess}) => {
         }
     }
     return (
-        <div className='flex items-center w-full m-2 justify-center'>
+        <div className='flex items-center w-full justify-center'>
             
             {/* Sign Up Form */}
 
             {activeTab === 'register' && (
-            <div className='bg-white p-6 w-full max-w-md rounded-3xl shadow-2xl'>
+            <div className='bg-white p-8 w-full max-w-md rounded-3xl shadow-2xl'>
             <h6 className='text-2xl text-center font-medium mb-6'>SIGN UP</h6>
             {error && (
                 <div className='bg-red-100 text-red-700 p-4 rounded-md mb-4 w-full'>
@@ -155,7 +155,7 @@ const LoginForm = ({onLoginSuccess}) => {
             )}
             {/* Login Form */}
             {activeTab === 'login' && (
-                <div className='bg-white p-6 w-full max-w-md rounded-3xl shadow-2xl'>
+                <div className='bg-white p-8 w-full max-w-md rounded-3xl shadow-2xl'>
                 <h6 className='text-2xl text-center font-medium mb-6'>Log In</h6>
                 {error && (
                 <div className='bg-red-100 text-red-700 p-4 rounded-md mb-4 w-full'>
