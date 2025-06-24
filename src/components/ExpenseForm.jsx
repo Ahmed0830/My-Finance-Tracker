@@ -135,17 +135,17 @@ const ExpenseForm = () => {
             <QuickStats goalCount = {goals.length}/>
             <div className="flex flex-wrap justify-between bg-gray-300 font-medium rounded-md mb-4 overflow-hidden">
             <div className='flex-1 min-w-[100px] m-1 text-center'>
-            <button className= {`w-full rounded-md p-2 ${activeTab === 'expenses' ? `bg-white text-blue-500` : ''}`}
+            <button className= {`w-full rounded-md p-2 flex flex-col sm:flex-row items-center justify-center ${activeTab === 'expenses' ? `bg-white text-blue-500` : ''}`}
              onClick={() => setActiveTab('expenses')}>
-                <TrendingDown className='inline-block w-5 h-5 mr-2'/>Expenses</button>
+                <TrendingDown className='w-5 h-5 mb-1 sm:mb-0 sm:mr-2'/>Expenses</button>
         </div>
         <div className='flex-1 min-w-[100px] m-1 text-center'>
-            <button className= {`w-full rounded-md p-2 ${activeTab === 'goals' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('goals')}>
-                <Goal className='inline-block w-5 h-5 mr-2'/>Goals</button>
+            <button className= {`w-full rounded-md p-2 flex flex-col sm:flex-row items-center justify-center ${activeTab === 'goals' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('goals')}>
+                <Goal className='w-5 h-5 mb-1 sm:mb-0 sm:mr-2'/>Goals</button>
         </div>
         <div className='flex-1 min-w-[100px] m-1 text-center'>
-            <button className= {`w-full rounded-md p-2 ${activeTab === 'chart' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('chart')}>
-            <PieChart className='inline-block w-5 h-5 mr-2'/>Insights</button>
+            <button className= {`w-full rounded-md p-2 flex flex-col sm:flex-row items-center justify-center ${activeTab === 'chart' ? `bg-white text-blue-500` : ''}`} onClick={() => setActiveTab('chart')}>
+            <PieChart className='w-5 h-5 mb-1 sm:mb-0 sm:mr-2'/>Insights</button>
         </div>
         </div>
         {activeTab === 'expenses' && (

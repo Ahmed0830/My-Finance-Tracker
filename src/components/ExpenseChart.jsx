@@ -12,7 +12,7 @@ return(
     <div className='bg-white rounded-lg shadow-lg p-4 sm:p-6'>   
     <h2 className='text-2xl font-semibold mb-2 text-gray-800'>Spending Insights</h2>     
     <h3 className='text-lg font-medium mb-4 text-gray-700'>This Month's Spending by Category</h3>
-    <ResponsiveContainer width="100%" minHeight = {300}>
+    <ResponsiveContainer width="100%" minHeight = {300} minWidth={100}>
         <PieChart>
             <Pie
             data = {expenses}
@@ -20,10 +20,10 @@ return(
             nameKey="category"
             cx="50%"
             cy="50%"
-            outerRadius={120}
+            outerRadius="80%"
             fill="#8884d8"
             labelLine={false}
-            label={({ category, percent }) => percent > 0.05 ? `${category} ${(percent * 100).toFixed(0)}%` : ''}
+            label={({ category, percent }) => `${category} ${(percent * 100).toFixed(0)}%`}
             >
                 {expenses.map((entry, id) => (
                     <Cell key={`cell-${id}`} fill={COLORS[id % COLORS.length]} />
